@@ -1,0 +1,86 @@
+<%-include('../header.ejs') %>
+
+<section class="dashboard-wrap mtb-40">
+    <div class="container">
+        <div class="body-content">
+            <div class="row">
+                
+               <%-include('../admin-sidebar.ejs') %>
+
+                <div class="col-md-9">
+                    <div class="dash-right">
+                        <div class="dash-header">
+                            <div class="dash-title">
+                                <h1>Category Edit</h1>
+                            </div>
+                        </div>
+                        <form action="/admin/categoryupdate/<%=d._id %>" method="post" enctype="multipart/form-data">
+                
+                            <div class="md-3">
+                                <label for="">Title</label>
+                                <input type="text" name="title" value="<%=d.title%>"  class="form-control">
+                            </div>
+            
+                            <div class="md-3">
+                                <label for="">Description</label>
+                                <textarea type="text" name="description" class="form-control"><%=d.description%>
+                                </textarea>
+                            </div>
+                            <div class="md-3">
+                                <label for="">Category</label>
+                                <input type="text" name="category" value="<%=d.category%>" class="form-control">
+                            </div>
+                            <div class="md-3">
+                                <label for="">Upload Image</label>
+                                <input type="file" name="image" class="form-control">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Button</button>
+                        </form>
+                        
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!---Modal Blog Create-->
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add Blog</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="/admin/categoryupdate" method="post" enctype="multipart/form-data">
+                
+                <div class="md-3">
+                    <label for="">Title</label>
+                    <input type="text" name="title" class="form-control">
+                </div>
+
+                <div class="md-3">
+                    <label for="">Description</label>
+                    <textarea type="text" name="description" class="form-control">
+                    </textarea>
+                </div>
+                <div class="md-3">
+                    <label for="">Category</label>
+                    <input type="text" name="category" class="form-control">
+                </div>
+                <div class="md-3">
+                    <label for="">Upload Image</label>
+                    <input type="file" name="image" class="form-control">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Button</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<%-include('../footer.ejs') %>

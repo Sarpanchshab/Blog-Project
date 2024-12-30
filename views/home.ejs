@@ -1,0 +1,62 @@
+<%-include('./header.ejs') %>
+
+ <!-- carousel -->
+ <section id="carousel">
+    <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
+                aria-label="Slide 1" aria-current="true"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"
+                class=""></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"
+                class=""></button>
+        </div>
+
+        <div class="carousel-inner">
+            <!-- item-1 -->
+            <div class="carousel-item active" data-bs-interval="4000">
+                <img class="carouselHeight" src="../../assets/images/banner.jpg" alt=" Image-1" width="100%">
+            </div>
+
+            <!-- item-2 -->
+            <div class="carousel-item" data-bs-interval="2000">
+                <img class="carouselHeight" src="../../assets/images/banner2.jpg" alt=" Image-2" width="100%">
+            </div>
+
+            <!-- item-3 -->
+            <div class="carousel-item" data-bs-interval="2000">
+                <img class="carouselHeight" src="../../assets/images/banner3.avif" alt=" Image-3" width="100%">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+<!-- End Carousel -->
+<section class="featured-blog mtb-40">
+    <div class="container">
+        <div class="row">
+            <%b.forEach((item)=>{ %>
+                <div class="col-md-4">
+                    <div class="blog-box">
+                        <img src="<%= item.image.url %>" alt="blog1" />
+                        <h3 class="text-xl font-medium mb-2"><%= item.title %></h3>
+                        <p class="mb-2"><%= item.description %></p>
+                        <p><span><%= item.createdAt.toLocaleDateString() %></span></p>
+                        <a href="/detail/<%-item._id%>" class="btn btn-danger">Read more...</a>
+                    </div>
+                </div>
+          <%  }) %>
+            
+           
+        </div>
+    </div>
+</section>
+
+<%-include('./footer.ejs') %>

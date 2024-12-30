@@ -1,0 +1,87 @@
+<%-include('../header.ejs') %>
+
+<section class="dashboard-wrap mtb-40">
+  <div class="container">
+    <div class="body-content">
+      <div class="row">
+        
+        <%-include('../admin-sidebar.ejs') %>
+
+        <div class="col-md-9">
+          <div class="dash-right">
+            <div class="dash-header">
+              <div class="dash-title">
+                <h1>View Blog</h1>
+              </div>
+
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                Add Blog
+              </button>
+            </div>
+
+            <table class="table table-bordered table-striped">
+              <tr>
+                <th>#ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Image</th>
+              </tr>
+
+              <tr>
+                <td><%= view._id %></td>
+                <td><%= view.title %></td>
+                <td><%= view.description %></td>
+                <th><img src="<%= view.image.url %>" alt=""></th>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!---Modal Blog Create-->
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Blog</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form action="/insertblog" method="post">
+          <div class="md-3">
+            <label for="">Title</label>
+            <input type="text" name="title" class="form-control" />
+          </div>
+          <div class="md-3">
+            <label for="">Description</label>
+            <textarea type="text" name="description" class="form-control">
+            </textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Button</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%-include('../footer.ejs') %>
